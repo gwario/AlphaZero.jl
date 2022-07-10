@@ -27,7 +27,7 @@ action was visited and ``τ`` the `temperature` parameter.
 
 It is typical to use a high value of the temperature parameter ``τ``
 during the first moves of a game to increase exploration and then switch to
-a small value. Therefore, `temperature` is am [`AbstractSchedule`](@ref).
+a small value. Therefore, `temperature` is an [`AbstractSchedule`](@ref).
 
 For information on parameters `cpuct`, `dirichlet_noise_ϵ`,
 `dirichlet_noise_α` and `prior_temperature`, see [`MCTS.Env`](@ref).
