@@ -70,6 +70,32 @@ function think(::RandomPlayer, game)
   return actions, π
 end
 
+
+#####
+##### Predefined Player
+#####
+using DataStructures
+
+"""
+ScriptedPlayer <: AbstractPlayer
+
+A player that picks predefined actions.
+"""
+mutable struct ScriptedPlayer{A} <: AbstractPlayer
+  actions :: DataStructures.Queue{A}
+  game
+end
+
+function think(p::ScriptedPlayer, game)
+  p.game = game
+  actions = GI.available_actions(game)
+  next_action = dequeue!(p.actions)
+  π = zeros(length(actions))
+  next_action_idx = findfirst(a -> next_action.value == a.value && next_action.cards == a.cards, actions)
+  π[next_action_idx] = 1
+  return actions, π
+end
+
 #####
 ##### Epsilon-greedy player
 #####

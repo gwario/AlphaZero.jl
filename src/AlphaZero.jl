@@ -87,6 +87,7 @@ module AlphaZero
   export AbstractPlayer, think, select_move, reset_player!, player_temperature
   export MctsPlayer
   export RandomPlayer
+  export ScriptedPlayer
   export NetworkPlayer
   export PlayerWithTemperature
   export EpsilonGreedyPlayer

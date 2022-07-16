@@ -123,6 +123,18 @@ end
 #####
 ##### Standard players
 #####
+"""
+    Benchmark.RandomPlayer() <: Benchmark.Player
+
+Random baseline, which relies on [`AlphaZero.RandomPlayer`](@ref).
+"""
+@kwdef struct RandomPlayer <: Player end
+
+name(p::RandomPlayer) = "Random"
+
+function instantiate(p::RandomPlayer, ::AbstractGameSpec, nn)
+  return AlphaZero.RandomPlayer()
+end
 
 """
     Benchmark.MctsRollouts(params) <: Benchmark.Player
